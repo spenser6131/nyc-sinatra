@@ -1,0 +1,22 @@
+<h1>All Historical Figures</h2>
+<br>
+<% Figure.all.each do |figure| %>
+  <h2><a href="/figures/<%= figure.id %>"><%= figure.name %></a></h2>
+  <h3>Titles held:</h3>
+  <ul>
+    <% figure.titles.each do |title| %>
+      <li><%= title.name %></li>
+    <% end %>
+  </ul>
+  <h3>Historical Landmarks:</h3>
+  <ul>
+    <% figure.landmarks.each do |landmark| %>
+      <li><%= landmark.name %>, built <%= landmark.year_completed %></li>
+    <% end %>
+  </ul>
+  <a href="/figures/<%= figure.id %>/edit">Edit this Historical Figure</a>
+  <br><br><br>
+<% end %>
+
+<a class="button" href="/landmarks">Landmarks</a>
+<a class="button" href="/">Home</a>

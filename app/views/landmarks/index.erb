@@ -1,6 +1,16 @@
-<h2>All Historical Landmarks</h2>
-
-<!-- add content here -->
+<h1>All Historical Landmarks</h1>
+<br>
+<% Landmark.all.each do |landmark| %>
+  <h2><a href="/landmarks/<%= landmark.id %>"><%= landmark.name %> (<%= landmark.year_completed %>)</a></h2>
+  <h3>Associated Historical Figure:</h3>
+  <% if landmark.figure %>
+    <h4><%= landmark.figure.name %></h4>
+  <% else %>
+    <h4>This landmark is not associated with a historical figure!</h4>
+  <% end %>
+  <a href="/landmarks/<%= landmark.id %>/edit">Edit this Historical Landmark</a>
+  <br><br><br>
+<% end %>
 
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>
